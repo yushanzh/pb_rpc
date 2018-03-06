@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+option cc_generic_services = true;
+
+message FooRequest {
+	required string text = 1;
+	optional int32 times = 2;
+}
+
+message FooResponse {
+	required string text = 1;
+	optional bool result = 2;
+}
+
+message TranRequest {
+	required string text = 1;
+}
+
+message TranResponse {
+	required string text = 1;
+	optional bool result = 2;
+}
+
+service EchoService {
+	rpc Foo(FooRequest) returns(FooResponse);
+}
+
+service TranService {
+	rpc Tran(TranRequest) returns(TranResponse);	
+}
